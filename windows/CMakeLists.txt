@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(praktek1 LANGUAGES CXX)
+project(cobake3 LANGUAGES CXX)
 
-set(BINARY_NAME "praktek1")
+set(BINARY_NAME "cobake3")
 
 cmake_policy(SET CMP0063 NEW)
 
