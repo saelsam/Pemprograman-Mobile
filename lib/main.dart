@@ -220,7 +220,7 @@ class _SecondpageState extends State<Secondpage> {
             height: 30,
           ),
           Container(
-            height: 200,
+            height: 250,
             width: 200,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -235,6 +235,15 @@ class _SecondpageState extends State<Secondpage> {
                         title: Text("Apel Malang"),
                         subtitle: Text("Rp24.000"),
                       ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "pilih",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   )),
                 ),
@@ -247,6 +256,15 @@ class _SecondpageState extends State<Secondpage> {
                       ListTile(
                         title: Text("Jeruk Ponkam"),
                         subtitle: Text("Rp27.000"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "pilih",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ],
                   )),
@@ -261,6 +279,15 @@ class _SecondpageState extends State<Secondpage> {
                         title: Text("Buah Naga Merah"),
                         subtitle: Text("Rp20.000"),
                       ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "pilih",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   )),
                 ),
@@ -273,6 +300,15 @@ class _SecondpageState extends State<Secondpage> {
                       ListTile(
                         title: Text("Nanas Madu"),
                         subtitle: Text("Rp10.000"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "pilih",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ],
                   )),
@@ -287,6 +323,15 @@ class _SecondpageState extends State<Secondpage> {
                         title: Text("Pepaya California"),
                         subtitle: Text("Rp10.000"),
                       ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "pilih",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
+                      ),
                     ],
                   )),
                 ),
@@ -299,6 +344,15 @@ class _SecondpageState extends State<Secondpage> {
                       ListTile(
                         title: Text("Salak Pondoh"),
                         subtitle: Text("Rp20.000"),
+                      ),
+                      ElevatedButton(
+                        onPressed: () {},
+                        child: Text(
+                          "pilih",
+                          style: TextStyle(
+                            color: Colors.black,
+                          ),
+                        ),
                       ),
                     ],
                   )),
