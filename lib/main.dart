@@ -13,6 +13,10 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       title: 'Flutter Demo',
       theme: ThemeData(
+        appBarTheme: AppBarTheme(
+            backgroundColor: Colors.green,
+            foregroundColor: Colors.black //here you can give the text color
+            ),
         primarySwatch: Colors.blue,
       ),
       home: const MyHomePage(),
@@ -20,40 +24,175 @@ class MyApp extends StatelessWidget {
   }
 }
 
-class MyHomePage extends StatefulWidget {
+class MyHomePage extends StatelessWidget {
   const MyHomePage({Key? key}) : super(key: key);
-
-  @override
-  State<MyHomePage> createState() => _MyHomePageState();
-}
-
-class _MyHomePageState extends State<MyHomePage> {
-  String buah = "";
-  String apel = "Apel";
-  String jeruk = "Jeruk";
-  String naga = "Buah Naga";
-  String nanas = "Nanas";
-  String pepaya = "Pepaya";
-  String salak = "Salak";
-  String hasil = "";
-  String hasilBeli = "";
-  String berat = "";
-  int beratBuah = 0;
-  int harga = 0;
 
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(
-        title: Text("posttest3_2009106034_Sael Samuel Rude'"),
-      ),
-      body: ListView(
+        appBar: AppBar(
+          title: Text("Fruit Shop by Sael"),
+        ),
+        body: ListView(
+          children: [
+            Container(
+              padding: const EdgeInsets.all(15.0),
+              height: 400,
+              width: 200,
+              child: ListView(
+                scrollDirection: Axis.horizontal,
+                children: <Widget>[
+                  Container(
+                    width: 400,
+                    child: Card(
+                        child: Wrap(
+                      children: <Widget>[
+                        Image.asset("images/apel.jpg"),
+                        ListTile(
+                          title: Text("Apel Malang"),
+                        ),
+                      ],
+                    )),
+                  ),
+                  Container(
+                    width: 400,
+                    child: Card(
+                        child: Wrap(
+                      children: <Widget>[
+                        Image.asset("images/jeruk.jpg"),
+                        ListTile(
+                          title: Text("Jeruk Ponkam"),
+                        ),
+                      ],
+                    )),
+                  ),
+                  Container(
+                    width: 400,
+                    child: Card(
+                        child: Wrap(
+                      children: <Widget>[
+                        Image.asset("images/naga.jpg"),
+                        ListTile(
+                          title: Text("Buah Naga Merah"),
+                        ),
+                      ],
+                    )),
+                  ),
+                  Container(
+                    width: 400,
+                    child: Card(
+                        child: Wrap(
+                      children: <Widget>[
+                        Image.asset("images/nanas.jpg"),
+                        ListTile(
+                          title: Text("Nanas Madu"),
+                        ),
+                      ],
+                    )),
+                  ),
+                  Container(
+                    width: 400,
+                    child: Card(
+                        child: Wrap(
+                      children: <Widget>[
+                        Image.asset("images/pepaya.jpg"),
+                        ListTile(
+                          title: Text("Pepaya California"),
+                        ),
+                      ],
+                    )),
+                  ),
+                  Container(
+                    width: 400,
+                    child: Card(
+                        child: Wrap(
+                      children: <Widget>[
+                        Image.asset("images/salak.jpg"),
+                        ListTile(
+                          title: Text("Salak Pondoh"),
+                        ),
+                      ],
+                    )),
+                  ),
+                ],
+              ),
+            ),
+            Column(
+              crossAxisAlignment: CrossAxisAlignment.center,
+              children: [
+                Container(
+                  width: 192,
+                  height: 40,
+                  margin: EdgeInsets.only(top: 30),
+                ),
+                Text(
+                  "Sam Fruit Shop",
+                  style: TextStyle(
+                    fontSize: 24,
+                    fontWeight: FontWeight.bold,
+                    color: Color(0xFF023E4A),
+                  ),
+                ),
+                Text(
+                  "Kesegaran dan Kebersihan Buah Selalu Dijaga",
+                  textAlign: TextAlign.center,
+                ),
+                SizedBox(
+                  height: 30,
+                ),
+              ],
+            ),
+            ElevatedButton(
+              child: Text(
+                "ORDER",
+              ),
+              onPressed: () {
+                Navigator.pushReplacement(context, MaterialPageRoute(
+                  builder: (_) {
+                    return Secondpage();
+                  },
+                ));
+              },
+              style: ElevatedButton.styleFrom(
+                primary: Colors.green,
+              ),
+            ),
+          ],
+        ));
+  }
+}
+
+class Secondpage extends StatefulWidget {
+  const Secondpage({Key? key}) : super(key: key);
+
+  @override
+  State<Secondpage> createState() => _SecondpageState();
+}
+
+class _SecondpageState extends State<Secondpage> {
+  int _index = 0;
+  List<BottomNavigationBarItem> bottomNavBarItems = [
+    BottomNavigationBarItem(
+      icon: Icon(Icons.home),
+      label: "Order",
+    ),
+    BottomNavigationBarItem(
+      icon: Icon(Icons.person),
+      label: "Profile",
+    ),
+  ];
+
+  List<Widget> tabBody = [
+    Container(
+      margin: EdgeInsets.only(left: 0, top: 10, right: 0, bottom: 50),
+      color: Colors.white,
+      child: ListView(
         children: [
           Container(
             width: 200,
             height: 500,
             margin: EdgeInsets.only(top: 27),
-            decoration: BoxDecoration(
+            decoration: const BoxDecoration(
               image: DecorationImage(
                 image: AssetImage("images/logo.jpg"),
                 fit: BoxFit.contain,
@@ -81,7 +220,7 @@ class _MyHomePageState extends State<MyHomePage> {
             height: 30,
           ),
           Container(
-            height: 250,
+            height: 200,
             width: 200,
             child: ListView(
               scrollDirection: Axis.horizontal,
@@ -96,22 +235,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         title: Text("Apel Malang"),
                         subtitle: Text("Rp24.000"),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            buah = "Anda Membeli Apel";
-                            harga = 24000;
-                            hasil = "Berhasil Membeli $apel";
-                            print(buah);
-                          });
-                        },
-                        child: Text(
-                          "pilih",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
                     ],
                   )),
                 ),
@@ -124,22 +247,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ListTile(
                         title: Text("Jeruk Ponkam"),
                         subtitle: Text("Rp27.000"),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            buah = "Anda Membeli Jeruk";
-                            harga = 27000;
-                            hasil = "Berhasil Membeli $jeruk";
-                            print(buah);
-                          });
-                        },
-                        child: Text(
-                          "pilih",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
                       ),
                     ],
                   )),
@@ -154,22 +261,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         title: Text("Buah Naga Merah"),
                         subtitle: Text("Rp20.000"),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            buah = "Anda Membeli Buah Naga";
-                            harga = 20000;
-                            hasil = "Berhasil Membeli $naga";
-                            print(buah);
-                          });
-                        },
-                        child: Text(
-                          "pilih",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
                     ],
                   )),
                 ),
@@ -182,22 +273,6 @@ class _MyHomePageState extends State<MyHomePage> {
                       ListTile(
                         title: Text("Nanas Madu"),
                         subtitle: Text("Rp10.000"),
-                      ),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            buah = "Anda Membeli Nanas";
-                            harga = 10000;
-                            hasil = "Berhasil Membeli $nanas";
-                            print(buah);
-                          });
-                        },
-                        child: Text(
-                          "pilih",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
                       ),
                     ],
                   )),
@@ -212,22 +287,6 @@ class _MyHomePageState extends State<MyHomePage> {
                         title: Text("Pepaya California"),
                         subtitle: Text("Rp10.000"),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            buah = "Anda Membeli Pepaya";
-                            harga = 10000;
-                            hasil = "Berhasil Membeli $pepaya";
-                            print(buah);
-                          });
-                        },
-                        child: Text(
-                          "pilih",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
                     ],
                   )),
                 ),
@@ -241,29 +300,12 @@ class _MyHomePageState extends State<MyHomePage> {
                         title: Text("Salak Pondoh"),
                         subtitle: Text("Rp20.000"),
                       ),
-                      ElevatedButton(
-                        onPressed: () {
-                          setState(() {
-                            buah = "Anda Membeli Salak";
-                            harga = 20000;
-                            hasil = "Berhasil Membeli $salak";
-                            print(buah);
-                          });
-                        },
-                        child: Text(
-                          "pilih",
-                          style: TextStyle(
-                            color: Colors.black,
-                          ),
-                        ),
-                      ),
                     ],
                   )),
                 ),
               ],
             ),
           ),
-          Text("$hasil"),
           Text(
             "\nPilih Berat Buah Yang Akan Dibeli\n",
             textAlign: TextAlign.center,
@@ -276,14 +318,7 @@ class _MyHomePageState extends State<MyHomePage> {
             mainAxisAlignment: MainAxisAlignment.spaceAround,
             children: [
               ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    berat = "1KG";
-                    beratBuah = 1;
-                    harga = harga * beratBuah;
-                    print("$buah $berat");
-                  });
-                },
+                onPressed: () {},
                 child: Text(
                   "1KG",
                   style: TextStyle(
@@ -292,14 +327,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    berat = "2KG";
-                    beratBuah = 2;
-                    harga = harga * beratBuah;
-                    print("$buah $berat");
-                  });
-                },
+                onPressed: () {},
                 child: Text(
                   "2KG",
                   style: TextStyle(
@@ -308,14 +336,7 @@ class _MyHomePageState extends State<MyHomePage> {
                 ),
               ),
               ElevatedButton(
-                onPressed: () {
-                  setState(() {
-                    berat = "3KG";
-                    beratBuah = 3;
-                    harga = harga * beratBuah;
-                    print("$buah $berat");
-                  });
-                },
+                onPressed: () {},
                 child: Text(
                   "3KG",
                   style: TextStyle(
@@ -325,22 +346,172 @@ class _MyHomePageState extends State<MyHomePage> {
               ),
             ],
           ),
-          SizedBox(height: 20),
           TextButton(
-            onPressed: () {
-              setState(() {
-                hasilBeli = "$buah dengan berat $berat seharga Rp$harga";
-                print(hasilBeli);
-              });
-            },
-            child: Text("Submit"),
+            onPressed: () {},
+            child: Text("Beli"),
             style: TextButton.styleFrom(
-              backgroundColor: Colors.red,
+              backgroundColor: Colors.green,
               primary: Colors.black,
             ),
           ),
-          Text("  $hasilBeli"),
         ],
+      ),
+    ),
+    Container(
+      color: Colors.white,
+      child: ListView(
+        children: [
+          Text(
+            "\nRegister\n",
+            textAlign: TextAlign.center,
+            style: TextStyle(
+              fontSize: 25,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          Text(
+            " Nama Depan",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.text,
+            //controller: controllerBelakang,
+            decoration: InputDecoration(
+              icon: Icon(Icons.people),
+              labelText: " Masukkan nama depan",
+              border: OutlineInputBorder(),
+            ),
+          ),
+          Text(
+            " \nNama Belakang",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.text,
+            //controller: controllerBelakang,
+            decoration: InputDecoration(
+              icon: Icon(Icons.people),
+              labelText: " Masukkan nama belakang",
+              border: OutlineInputBorder(),
+            ),
+          ),
+          Text(
+            " \nNo Handphone",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.number,
+            //controller: controllerBelakang,
+            decoration: InputDecoration(
+              icon: Icon(Icons.phone),
+              labelText: "08xx",
+              border: OutlineInputBorder(),
+            ),
+          ),
+          Text(
+            " \nEmail",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            keyboardType: TextInputType.emailAddress,
+            //controller: controllerBelakang,
+            decoration: InputDecoration(
+              icon: Icon(Icons.mail),
+              labelText: " contoh : name@gmail.com",
+              border: OutlineInputBorder(),
+            ),
+          ),
+          Text(
+            " \nPassword",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            //controller: controllerBelakang,
+            //membuat bintang saat input text
+            obscureText: true,
+            decoration: InputDecoration(
+              icon: Icon(Icons.password),
+              labelText: "",
+              border: OutlineInputBorder(),
+            ),
+          ),
+          Text(
+            " \nConfirm Password",
+            style: TextStyle(
+              fontSize: 15,
+              fontWeight: FontWeight.bold,
+              color: Color(0xFF023E4A),
+            ),
+          ),
+          SizedBox(height: 10),
+          TextFormField(
+            obscureText: true,
+            decoration: InputDecoration(
+              icon: Icon(Icons.password),
+              labelText: "",
+              border: OutlineInputBorder(),
+            ),
+          ),
+          ElevatedButton(
+            onPressed: () {},
+            child: Text(
+              "Submit",
+              style: TextStyle(
+                fontSize: 15,
+                fontWeight: FontWeight.bold,
+                color: Colors.black,
+              ),
+            ),
+            style: ElevatedButton.styleFrom(
+              primary: Colors.green,
+            ),
+          ),
+        ],
+      ),
+    ),
+  ];
+
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      appBar: AppBar(
+        title: Text("Fruit Shop by Sael"),
+      ),
+      body: tabBody.elementAt(_index),
+      bottomNavigationBar: BottomNavigationBar(
+        items: bottomNavBarItems,
+        currentIndex: _index,
+        onTap: (int index) {
+          setState(() {
+            _index = index;
+          });
+        },
       ),
     );
   }
