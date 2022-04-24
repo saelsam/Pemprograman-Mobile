@@ -1,4 +1,4 @@
-name: cobake3
+name: postest4_2009106034_saelsamuelrudek
 description: A new Flutter project.
 
 # The following line prevents the package from being accidentally published to
@@ -71,6 +71,7 @@ flutter:
       - images/pepaya.jpg
       - images/salak.jpg
       - images/logo.jpg
+
   # An image asset can refer to one or more resolution-specific "variants", see
   # https://flutter.dev/assets-and-images/#resolution-aware.
 
