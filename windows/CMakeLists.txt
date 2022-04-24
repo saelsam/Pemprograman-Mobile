@@ -1,7 +1,7 @@
 cmake_minimum_required(VERSION 3.14)
-project(cobake3 LANGUAGES CXX)
+project(postest4_2009106034_saelsamuelrudek LANGUAGES CXX)
 
-set(BINARY_NAME "cobake3")
+set(BINARY_NAME "postest4_2009106034_saelsamuelrudek")
 
 cmake_policy(SET CMP0063 NEW)
 
